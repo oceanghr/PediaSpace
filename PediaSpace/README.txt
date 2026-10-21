@@ -1,0 +1,1 @@
+PediaSpace front-end demo. File utama: index.html, style.css, script.js. Jalankan dengan Live Server atau buka index.html. Login mahasiswa pada demo menerima username/NIM dan password apa pun yang tidak kosong. Login admin: admin / admin123. Data autentikasi ini hanya simulasi front-end, bukan sistem keamanan produksi.

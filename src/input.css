@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+  }
+}
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition;
+  }
+  .btn-p {
+    @apply bg-p text-white hover:bg-pd;
+  }
+  .btn-o {
+    @apply border border-gray-300 hover:border-p hover:text-p;
+  }
+  .field {
+    @apply w-full rounded-xl border border-gray-300 bg-white px-3 py-2.5 text-sm outline-none focus:border-p focus:ring-2 focus:ring-p/10;
+  }
+  .lbl {
+    @apply mb-1.5 mt-4 block text-xs font-bold;
+  }
+  .pill {
+    @apply inline-block rounded-full bg-lav px-2.5 py-1 text-[10px] font-bold text-p;
+  }
+}

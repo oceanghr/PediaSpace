@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PediaSpace — Satu Portal, Semua Kegiatan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/logo.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-auth="guest">
+    <div class="toast" id="toast" role="status"></div>
+
+    <!-- NAVBAR: guest = Tentang, Kontak | member = Beranda, Proker & Kegiatan, Sertifikat + profile -->
+    <header class="navbar">
+      <div class="wrap nav">
+        <a class="logo" href="#top"
+          ><img class="logo-img" src="assets/logo.png" alt="" /><span
+            >Pedia<i>Space</i></span
+          ></a
+        >
+        <nav id="mainNav">
+          <a class="g" href="#tentang">Tentang</a>
+          <a class="g" href="#kontak">Kontak</a>
+          <a class="m" href="#home">Beranda</a>
+          <a class="m" href="#kegiatan">Proker &amp; Kegiatan</a>
+          <a class="m" href="#sertifikat">Sertifikat</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="btn dark sm g" id="loginBtn">Masuk ↗</button>
+          <button class="profile m" id="profileBtn" aria-label="Buka dashboard">
+            <span class="avatar" id="navAvatar">P</span
+            ><span id="navName">Putri</span>
+          </button>
+          <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="site">
+      <!-- ===== SEBELUM LOGIN ===== -->
+      <section class="hero g" id="top">
+        <div class="wrap hero-inner">
+          <div>
+            <p class="eyebrow">Pendidikan Multimedia</p>
+            <h1>Satu portal,<br /><em>semua kegiatan.</em></h1>
+            <p class="lead">
+              Program kerja, kegiatan mahasiswa, open recruitment, dan
+              sertifikat Pendidikan Multimedia ada di satu tempat. Masuk untuk
+              mulai menjelajah.
+            </p>
+            <div class="row">
+              <button class="btn primary" data-open="loginModal">
+                Masuk ke PediaSpace ↗
+              </button>
+              <a class="btn outline" href="#tentang">Tentang PediaSpace</a>
+            </div>
+          </div>
+          <div class="photo hero-photo">
+            <img
+              src="assets/hero.jpg"
+              alt="Kegiatan mahasiswa"
+              onerror="this.remove()"
+            />
+            <div class="fb">PEDIA<br />SPACE</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about g" id="tentang">
+        <div class="wrap about-grid">
+          <div class="photo about-photo">
+            <img
+              src="assets/profile-hima.JPG"
+              alt="Profil HIMA"
+              onerror="this.remove()"
+            />
+            <div class="fb dark">PROFIL<br />PEDIA</div>
+          </div>
+          <div>
+            <p class="eyebrow">Tentang</p>
+            <h2>Satu ruang untuk <em>bergerak bersama.</em></h2>
+            <p class="lead">
+              PediaSpace memudahkan mahasiswa Pendidikan Multimedia menemukan
+              kegiatan dan kesempatan berkontribusi.
+            </p>
+            <ul class="points">
+              <li>
+                <strong>Temukan</strong
+                ><span
+                  >Lihat kegiatan HIMA dan non-HIMA yang sedang berjalan.</span
+                >
+              </li>
+              <li>
+                <strong>Daftar</strong
+                ><span
+                  >Isi formulir open recruitment langsung dari portal.</span
+                >
+              </li>
+              <li>
+                <strong>Unduh</strong
+                ><span>Akses sertifikat kegiatanmu kapan saja.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section g" id="kontak">
+        <div class="wrap">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Kontak</p>
+              <h2>Ada pertanyaan? <em>Hubungi kami.</em></h2>
+            </div>
+            <p>
+              Tim HIMA Pendidikan Multimedia siap membantu seputar kegiatan,
+              pendaftaran, dan sertifikat.
+            </p>
+          </div>
+          <div class="contact-grid">
+            <div class="contact-list">
+              <a href="#"
+                ><small>Instagram</small><strong>@hima.pedia</strong></a
+              >
+              <a href="#"
+                ><small>WhatsApp</small><strong>08xx-xxxx-xxxx</strong></a
+              >
+              <a href="#"
+                ><small>Email</small><strong>hima@pedia.ac.id</strong></a
+              >
+            </div>
+            <form class="card form" id="contactForm">
+              <label>Nama<input required placeholder="Nama lengkap" /></label>
+              <label
+                >Email<input type="email" required placeholder="nama@email.com"
+              /></label>
+              <label
+                >Pesan<textarea required placeholder="Tulis pesanmu"></textarea>
+              </label>
+              <button class="btn primary full">Kirim pesan ↗</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SETELAH LOGIN ===== -->
+      <section class="hero m" id="home">
+        <div class="wrap hero-inner">
+          <div>
+            <p class="eyebrow">Pendidikan Multimedia</p>
+            <h1>Temukan kegiatanmu,<br /><em>kembangkan potensimu.</em></h1>
+            <p class="lead">
+              Selamat datang kembali, <b id="homeName">Putri</b>. Lihat kegiatan
+              yang sedang berlangsung dan daftar sekarang.
+            </p>
+            <div class="row">
+              <a class="btn primary" href="#kegiatan">Lihat Kegiatan ↗</a>
+              <button class="btn outline" id="homeDash">Buka Dashboard</button>
+            </div>
+            <div class="stats">
+              <div><strong>20+</strong><span>Kegiatan</span></div>
+              <div><strong>10+</strong><span>Program Kerja</span></div>
+              <div><strong>100+</strong><span>Mahasiswa</span></div>
+            </div>
+          </div>
+          <div class="photo hero-photo">
+            <img
+              src="assets/hero.JPG"
+              alt="Kegiatan mahasiswa"
+              onerror="this.remove()"
+            />
+            <div class="fb">YOUR<br />ACTIVITY<br />HERE</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section m" id="kegiatan">
+        <div class="wrap">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Proker &amp; Kegiatan</p>
+              <h2>Temukan kegiatan <em>yang cocok.</em></h2>
+            </div>
+            <p>
+              Kegiatan yang sedang berlangsung, akan datang, maupun sudah
+              selesai.
+            </p>
+          </div>
+          <div class="filters">
+            <button class="filter active" data-filter="all">Semua</button>
+            <button class="filter" data-filter="hima">HIMA</button>
+            <button class="filter" data-filter="non-hima">NON HIMA</button>
+            <button class="filter" data-filter="ongoing">On Going</button>
+          </div>
+          <div class="activity-grid" id="activityGrid"></div>
+        </div>
+      </section>
+
+      <section class="section m" id="sertifikat">
+        <div class="wrap">
+          <div class="head">
+            <div>
+              <p class="eyebrow">Sertifikat</p>
+              <h2>Prestasimu <em>layak punya tempat.</em></h2>
+            </div>
+            <p>Cari sertifikat kegiatanmu dengan nomor sertifikat atau NIM.</p>
+          </div>
+          <div class="cert-box">
+            <div>
+              <b class="check">✓</b>
+              <h3>Temukan sertifikatmu</h3>
+              <p>Masukkan nomor sertifikat atau NIM untuk mencari.</p>
+            </div>
+            <form id="certForm">
+              <label>Nomor Sertifikat / NIM</label>
+              <div class="input-row">
+                <input
+                  id="certInput"
+                  required
+                  placeholder="Contoh: 2408764"
+                /><button class="btn primary">Cari ↗</button>
+              </div>
+              <small id="certResult"></small>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== DASHBOARD (user & admin) ===== -->
+    <section id="dash">
+      <div class="dash-layout">
+        <aside class="sidebar">
+          <a class="logo" href="#top"
+            ><img class="logo-img" src="assets/logo.png" alt="" /><span
+              >Pedia<i>Space</i></span
+            ></a
+          >
+          <div class="dash-user">
+            <span class="avatar" id="dashAvatar">P</span>
+            <div>
+              <strong id="dashName">Putri</strong
+              ><small id="dashSub">2408764</small>
+            </div>
+          </div>
+          <nav id="dashNav"></nav>
+          <button class="logout" id="logoutBtn">↪ Logout</button>
+        </aside>
+        <div class="dash-content">
+          <div class="dash-top">
+            <div>
+              <small id="dashRole">USER</small>
+              <h1 id="dashTitle">Beranda</h1>
+            </div>
+            <button class="btn outline" id="backBtn">← Website</button>
+          </div>
+          <div id="dashBody"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap foot">
+        <a class="logo" href="#top"
+          ><img class="logo-img" src="assets/logo.png" alt="" /><span
+            >Pedia<i>Space</i></span
+          ></a
+        >
+        <span>© 2026 PediaSpace · Pendidikan Multimedia</span>
+      </div>
+    </footer>
+
+    <!-- MODAL: LOGIN -->
+    <div class="modal" id="loginModal">
+      <div class="modal-card">
+        <button class="close" data-close>×</button>
+        <h2>Masuk ke <em>PediaSpace.</em></h2>
+        <p class="sub">Pilih akses sesuai peranmu.</p>
+        <div class="role-tabs">
+          <button class="role active" data-role="user">Mahasiswa</button
+          ><button class="role" data-role="admin">Admin HIMA</button>
+        </div>
+        <form id="loginForm" class="form">
+          <label
+            >Username / NIM<input
+              id="loginUser"
+              required
+              placeholder="Username atau NIM"
+          /></label>
+          <label
+            >Password<input
+              id="loginPass"
+              type="password"
+              required
+              placeholder="Password"
+          /></label>
+          <button class="btn primary full">Masuk</button>
+        </form>
+        <small class="note">Demo admin: <b>admin</b> / <b>admin123</b></small>
+      </div>
+    </div>
+
+    <!-- MODAL: PENDAFTARAN -->
+    <div class="modal" id="applyModal">
+      <div class="modal-card wide">
+        <button class="close" data-close>×</button>
+        <h2>Daftar <em>kegiatan.</em></h2>
+        <p class="sub">Data tersimpan sebagai simulasi front-end.</p>
+        <form id="applyForm" class="form grid">
+          <label>Nama lengkap<input id="appName" required /></label>
+          <label
+            >Angkatan<input id="appYear" required placeholder="2024"
+          /></label>
+          <label
+            >Nomor telepon<input
+              id="appPhone"
+              required
+              placeholder="08xxxxxxxxxx"
+          /></label>
+          <label>Kegiatan<select id="appActivity"></select></label>
+          <label>Pilihan divisi 1<select id="appDiv1"></select></label>
+          <label>Pilihan divisi 2<select id="appDiv2"></select></label>
+          <label class="span"
+            >Alasan memilih divisi 1<textarea
+              id="appReason"
+              required
+              placeholder="Kenapa memilih divisi ini?"
+            ></textarea>
+          </label>
+          <label class="span"
+            >Alasan memilih divisi 2<textarea
+              id="appReason2"
+              required
+              placeholder="Kenapa memilih divisi ini?"
+            ></textarea>
+          </label>
+          <label
+            >Bersedia dipindahkan?<select id="appMove">
+              <option>Ya</option>
+              <option>Tidak</option>
+            </select></label
+          >
+          <label
+            >Portofolio (opsional)<input id="appPortfolio" type="file"
+          /></label>
+          <button class="btn primary span">Kirim pendaftaran ↗</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL: TAMBAH KEGIATAN (admin) -->
+    <div class="modal" id="actModal">
+      <div class="modal-card wide">
+        <button class="close" data-close>×</button>
+        <h2>Tambah <em>kegiatan.</em></h2>
+        <form id="actForm" class="form grid">
+          <label>Nama kegiatan<input id="actName" required /></label>
+          <label
+            >Kategori<select id="actCat">
+              <option>HIMA</option>
+              <option>NON HIMA</option>
+            </select></label
+          >
+          <label
+            >Tanggal<input id="actDate" required placeholder="30 Oktober 2026"
+          /></label>
+          <label
+            >Status<select id="actStatus">
+              <option>On Going</option>
+              <option>Coming Soon</option>
+              <option>Done</option>
+            </select></label
+          >
+
+          <!-- FOTO KEGIATAN (tampil di kartu halaman depan) -->
+          <!-- CARA TAMBAH FOTO:
+             1) Pilih file di sini (langsung tampil sebagai pratinjau), ATAU
+             2) Isi kolom "Path foto" dengan lokasi file di folder assets, contoh: assets/kegiatan-5.jpg
+             Foto yang diupload lewat form ini hanya tersimpan sementara (hilang saat refresh)
+             karena belum ada backend. Untuk permanen, simpan file di folder assets/ lalu isi Path foto. -->
+          <label
+            >Foto kegiatan (upload)<input
+              id="actPhoto"
+              type="file"
+              accept="image/*"
+          /></label>
+          <label
+            >atau Path foto<input
+              id="actPhotoPath"
+              placeholder="assets/kegiatan-5.jpg"
+          /></label>
+          <div class="span">
+            <img id="actPhotoPreview" class="photo-preview" alt="" hidden />
+          </div>
+
+          <!-- DIVISI YANG DIBUTUHKAN (jadi pilihan di form pendaftaran) -->
+          <fieldset class="span div-box">
+            <legend>Divisi yang dibutuhkan</legend>
+            <div class="checks" id="actDivChecks"></div>
+            <input
+              id="actDivCustom"
+              placeholder="Divisi lain (pisahkan dengan koma), contoh: Sponsorship, Dokumentasi"
+            />
+          </fieldset>
+
+          <label class="span"
+            >Deskripsi<textarea id="actDesc"></textarea>
+          </label>
+          <button class="btn primary span">Simpan kegiatan</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL: DETAIL PENDAFTAR (admin) -->
+    <div class="modal" id="detailModal">
+      <div class="modal-card wide">
+        <button class="close" data-close>×</button>
+        <h2>Detail <em>pendaftar.</em></h2>
+        <div id="detailBody"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
